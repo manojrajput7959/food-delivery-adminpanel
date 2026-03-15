@@ -5,15 +5,12 @@ import { StoreContext } from "./AllState"
 
 const MenuItems = ({ category }) => {
 
-const {food_list,cartItem,addtoCart,cartRemoveItem,url} =useContext(StoreContext)
+const {food_list,cartItem,addtoCart,cartRemoveItem,url} = useContext(StoreContext)
 
   const filteredFood =
     category === "All"
       ? food_list
       : food_list.filter(item => item.category === category)
-
-
-
   
   return (
     <div>
@@ -23,6 +20,7 @@ const {food_list,cartItem,addtoCart,cartRemoveItem,url} =useContext(StoreContext
 
        {/* all food list */}
       <div className="px-23 py-3 flex flex-wrap">
+
         {filteredFood.map((items, index) => (
           <div key={index} className="w-3/12 py-4 pl-4">
             <div className="w-11/12 relative">

@@ -17,10 +17,13 @@ const AllState = (props) => {
     const addtoCart = (itemId) => {
         if (!cartItem[itemId]) {
             setCartItem((prev) => ({ ...prev, [itemId]: 1 }))
+            
         }
 
         else {
             setCartItem((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }))
+            console.log(cartItem);
+            
         }
     }
 

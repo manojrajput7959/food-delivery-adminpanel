@@ -21,7 +21,6 @@ const List = () => {
   const removeItem = async(foodId)=>{
        const removeFood = await axios.post("http://localhost:4000/api/food/remove",{id:foodId})
        await serverData()
-
        if(removeFood.data.success){
         toast.success(removeFood.data.message)
        }else{

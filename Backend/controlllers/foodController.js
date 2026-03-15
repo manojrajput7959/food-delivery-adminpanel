@@ -58,6 +58,6 @@ const removeList = async (req, res) => {
     }
 }
 
-export { addFood, foodList, removeList }
+export { addFood, foodList, removeList}
 
 

@@ -23,7 +23,7 @@ const App = () => {
       <ToastContainer/>
     {showLogin?<Login setShowLogin={setShowLogin}/>:<></>}
       <Navbar setShowLogin={setShowLogin}/> 
-      <Routes>
+      <Routes>    
         <Route path='/' element={<Home/>}/><Route/>
         <Route path='/Menu' element={<Menu/>}/><Route/>
         <Route path='/Cart' element={<Cart/>}/><Route/>

@@ -7,7 +7,7 @@ import dotenv from 'dotenv';
 import userRoute from "./routes/userRoute.js";
 
 const app = express();
-const port = 4000;
+// const port = 4000;
 
 // middleware
 app.use(cookieParser())
@@ -34,7 +34,9 @@ app.get("/", (req, res) => {
   res.send("API is Working...");
 });
 
+const port = process.env.PORT || 4000;
+
 app.listen(port, () => {
-  console.log(`server is working http://localhost:${port}`);
+  console.log(`server is working on port ${port}`);
 });
 

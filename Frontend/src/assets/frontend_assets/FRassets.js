@@ -1,6 +1,7 @@
 import basket_icon from './basket_icon.png'
 import logo from './logo.png'
-import header_img from './header_img.png'
+import header_img2 from '../frontend_assets/Colorful_chicken.png'
+import header_img from '../frontend_assets/Easy_Salads.png'
 import search_icon from './search_icon.png'
 import menu_1 from './menu_1.png'
 import menu_2 from './menu_2.png'
@@ -64,6 +65,7 @@ export const FRassets = {
     logo,
     basket_icon,
     header_img,
+    header_img2,
     search_icon,
     rating_starts,
     add_icon_green,
@@ -262,7 +264,7 @@ export const food_list = [
         category: "Cake"
     }, {
         _id: "21",
-        name: "Garlic Mushroom ",
+        name: "Garlic Mushroom",
         image: food_21,
         price: 14,
         description: "Food provides essential nutrients for overall health and well-being",

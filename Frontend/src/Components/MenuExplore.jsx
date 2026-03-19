@@ -3,19 +3,26 @@ import { menu_list } from "../assets/frontend_assets/FRassets"
 
 const MenuExplore = ({ category, setCategory }) => {
   return (
-    <div>
-      <div className="w-9/12 pl-29" id="Menu-item">
-        <h2 className="py-3 text-4xl font-bold">Explore our menu</h2>
-        <p className="text-sm text-gray-700">
+    <div className="w-full" id="Menu-item">
+
+      {/* Heading */}
+      <div className="px-4 mt-12 lg:px-24">
+        <h2 className="py-3 text-3xl  leading-tight lg:text-5xl  pt-20 font-medium text-shadow-lg text-shadow-zinc-400">
+          Explore our menu
+        </h2>
+
+        <p className="text-sm text-gray-700 max-w-xl">
           Choose from a diverse menu featuring a delectable array of dishes.
         </p>
       </div>
 
-      <div className="flex justify-between items-center py-4 w-11/12 ml-25 pr-13">
+      {/* Menu List */}
+      <div className="flex gap-6 overflow-x-auto px-4 py-5 lg:justify-between lg:overflow-hidden lg:px-24">
+
         {menu_list.map((items, index) => (
           <div
             key={index}
-            className="text-center"
+            className="flex flex-col items-center min-w-[80px] cursor-pointer"
             onClick={() =>
               setCategory(prev =>
                 prev === items.menu_name ? "All" : items.menu_name
@@ -27,17 +34,23 @@ const MenuExplore = ({ category, setCategory }) => {
               alt=""
               className={
                 category === items.menu_name
-                  ? "w-8/12 border-3 border-amber-600 rounded-full scale-103 mb-0.5 md:ease-in-out"
-                  : "w-8/12 cursor-pointer"
+                  ? "w-16 h-16 lg:w-24 lg:h-24 border-4 border-amber-600 rounded-full scale-105 transition "
+                  : "w-16 h-16 lg:w-24 lg:h-24 rounded-full "
               }
             />
-            <p className="pr-14 text-sm text-gray-700">{items.menu_name}</p>
+
+            <p className="text-sm black mt-2 text-center lg:text-shadow-sm lg:text-shadow-zinc-400 text-shadow-md text-shadow-zinc-400">
+              {items.menu_name}
+            </p>
           </div>
         ))}
+
       </div>
-      <hr  className="w-10/12 ml-30 bg-gray-300 text-gray-300 h-0.9"/>
+
+      {/* Divider */}
+      <hr className="w-11/12 mx-auto bg-gray-400 text-zinc-400 h-[0.1vh]" />
+
     </div>
- 
   )
 }
 

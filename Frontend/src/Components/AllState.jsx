@@ -12,7 +12,7 @@ const AllState = (props) => {
 
     const [food_list, setfoodList] = useState([])
 
-    const url = "http://localhost:4000"
+    const url = "https://food-delivery-l39b.onrender.com"
 
     const addtoCart = (itemId) => {
         if (!cartItem[itemId]) {
@@ -40,6 +40,8 @@ const AllState = (props) => {
         setCartItem(prev => ({ ...prev, [itemId]: 0 }))
     }
 
+    // text-shadow-zinc-800 text-shadow-md
+
     const getSubTotal = () => {
         let totalAmount = 0
         for (const item in cartItem) {  // item = key(id) ,  cartItem = whole object
@@ -66,7 +68,7 @@ const AllState = (props) => {
 
     const getAllFood = async () => {
 
-        const response = await axios.get(url+"/api/food/List");
+        const response = await axios.get("https://food-delivery-l39b.onrender.com/api/food/List");
         setfoodList(response.data.data)
     }
 

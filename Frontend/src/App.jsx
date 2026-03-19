@@ -19,17 +19,22 @@ const App = () => {
 
   
   return (
-    <div className='overflow-x-hidden'> 
+    <div className={"overflow-x-hidden"}> 
       <ToastContainer/>
+      {showLogin && (
+  <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50">
     {showLogin?<Login setShowLogin={setShowLogin}/>:<></>}
+  </div>
+)}
+   
       <Navbar setShowLogin={setShowLogin}/> 
       <Routes>    
-        <Route path='/' element={<Home/>}/><Route/>
-        <Route path='/Menu' element={<Menu/>}/><Route/>
-        <Route path='/Cart' element={<Cart/>}/><Route/>
-        <Route path='/Order' element={<PlaceHolder/>}/><Route/>
-        <Route path='/Contact' element={<Contact/>}/><Route/>
-        <Route path='/Payment' element={<Payment/>}/><Route/>
+        <Route path='/' element={<Home showLogin={showLogin} />}/>
+        <Route path='/Menu' element={<Menu/>}/>
+        <Route path='/Cart' element={<Cart/>}/>
+        <Route path='/Order' element={<PlaceHolder/>}/>
+        <Route path='/Contact' element={<Contact/>}/>
+        <Route path='/Payment' element={<Payment/>}/>
       </Routes>
       <Footer />
 

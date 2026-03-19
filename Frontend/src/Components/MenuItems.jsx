@@ -1,64 +1,98 @@
-import React, { useContext, useEffect, useState } from "react"
-import { FRassets } from '../assets/frontend_assets/FRassets'
-import Cart from "../Pages/Cart"
+import React, { useContext } from "react"
+import { FRassets } from "../assets/frontend_assets/FRassets"
 import { StoreContext } from "./AllState"
+import Rating from "./Rating"
 
 const MenuItems = ({ category }) => {
 
-const {food_list,cartItem,addtoCart,cartRemoveItem,url} = useContext(StoreContext)
+  const { food_list, cartItem, addtoCart, cartRemoveItem, url } = useContext(StoreContext)
 
   const filteredFood =
     category === "All"
       ? food_list
       : food_list.filter(item => item.category === category)
-  
+
   return (
-    <div>
-      <div className="pl-26 py-4" id="Menu-detail">
-        <h3 className="text-2xl">Top dishes near you</h3>
+    <div id="Menu-detail">
+
+      {/* Title */}
+      <div className="px-4 lg:px-24 py-4">
+        <h3 className="text-2xl lg:text-3xl  text-shadow-md text-shadow-zinc-400 ">
+          Top dishes near you
+        </h3>
       </div>
 
-       {/* all food list */}
-      <div className="px-23 py-3 flex flex-wrap">
+      {/* Food List */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-6 gap-1 px-2 bg-gradient-to-br from-zinc-300 from-0% via-zinc-100 via-40% via-white via-70% to-zinc-200 to-100% bg-zinc-500 lg:px-35 py-3 ">
 
-        {filteredFood.map((items, index) => (
-          <div key={index} className="w-3/12 py-4 pl-4">
-            <div className="w-11/12 relative">
-              <img src={url+"/image/"+items.image} alt="" className="object-cover" />
-              <div className="absolute top-38 left-1 cursor-pointer">
-                
-                {/* add to card condition */}
-                {!cartItem[items._id] ?
-                  <img src={FRassets.add_icon_white} onClick={() => { addtoCart(items._id) }} className="w-10" />
-                  : <div className="flex w-25 justify-between bg-white items-center rounded-3xl">
-                    <img src={FRassets.add_icon_green} onClick={() => { addtoCart(items._id) }} />
-                    <p className="">{cartItem[items._id]}</p>
-                    <img src={FRassets.remove_icon_red} onClick={() => { cartRemoveItem(items._id) }} />
-                  </div>
-                }
-              </div>
+        {filteredFood <= 0 ? <span className="lg:h-[20vh] lg:text-shadow-md text-shadow-lg text-shadow-zinc-700 lg:text-shadow-zinc-700  h-[20vh] lg:bg-zinc-300 lg:w-[90vw] w-[90vw] lg:font-normal font-medium text-2xl py-3 px-2 lg:p-4">Food is Loading...</span> : filteredFood.map((items, index) => (
+          <div key={index} className="bg-white rounded-xl shadow-md relative p-3">
 
-            </div>
-            <div className="flex justify-between pr-8">
-              <h2>{items.name}</h2>
+            {/* Image */}
+            <div className="relative">
               <img
-                src={FRassets.rating_starts}
+                src={url + "/image/" + items.image}
                 alt=""
-                className="object-contain"
+                className="w-full h-40 object-cover rounded-lg"
               />
+
+              {/* Cart Button */}
+              <div className="absolute bottom-3 right-3">
+
+                {!cartItem[items._id] ? (
+                  <img
+                    src={FRassets.add_icon_white}
+                    onClick={() => addtoCart(items._id)}
+                    className="w-8 cursor-pointer"
+                  />
+                ) : (
+                  <div className="flex items-center gap-2 bg-white  relative px-2 py-1 rounded-full shadow">
+
+                    <img
+                      src={FRassets.add_icon_green}
+                      onClick={() => addtoCart(items._id)}
+                      className="w-5 cursor-pointer"
+                    />
+
+                    <p className="text-sm font-semibold">
+                      {cartItem[items._id]}
+                    </p>
+
+                    <img
+                      src={FRassets.remove_icon_red}
+                      onClick={() => cartRemoveItem(items._id)}
+                      className="w-5 cursor-pointer"
+                    />
+
+                  </div>
+                )}
+
+              </div>
             </div>
-            <div className="py-1">
-              <p className="text-gray-700 text-sm">{items.description}</p>
-            </div>
-            <div>
-              <h2 className="text-amber-600 text-xl font-bold">
-                ${items.price}
+
+            {/* Food Name */}
+            <div className="flex justify-between items-center mt-2 ">
+              <h2 className="font-semibold text-sm lg:text-base">
+                {items.name}
               </h2>
+
+              <Rating className={"lg:w-30 w-[14vw] lg:pl-auto lg:ml-38 ml-15 lg:bottom-21 bottom-3 absolute"} />
             </div>
+
+            {/* Description */}
+            <p className="text-gray-600 text-xs lg:text-sm mt-1 line-clamp-2">
+              {items.description}
+            </p>
+
+            {/* Price */}
+            <h2 className="text-amber-600 text-lg font-bold mt-1">
+              ₹{items.price}
+            </h2>
+
           </div>
         ))}
+
       </div>
-      {/* <Cart cartItem={cartItem} cartRemoveItem={cartRemoveItem} /> */}
     </div>
   )
 }

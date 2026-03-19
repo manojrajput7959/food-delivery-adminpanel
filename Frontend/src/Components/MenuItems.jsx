@@ -23,7 +23,7 @@ const MenuItems = ({ category }) => {
       </div>
 
       {/* Food List */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-6 gap-1 px-2 bg-gradient-to-br from-zinc-300 from-0% via-zinc-100 via-40% via-white via-70% to-zinc-200 to-100% bg-zinc-500 lg:px-35 py-3 ">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-6 gap-1 pl-1 pr-2 bg-gradient-to-br from-zinc-300 from-0% via-zinc-100 via-40% via-white via-70% to-zinc-200 to-100% bg-zinc-500 lg:px-35 py-3 ">
 
         {filteredFood <= 0 ? <span className="lg:h-[20vh] lg:text-shadow-md text-shadow-lg text-shadow-zinc-700 lg:text-shadow-zinc-700  h-[20vh] lg:bg-zinc-300 lg:w-[90vw] w-[90vw] lg:font-normal font-medium text-2xl py-3 px-2 lg:p-4">Food is Loading...</span> : filteredFood.map((items, index) => (
           <div key={index} className="bg-white rounded-xl shadow-md relative p-3">
@@ -43,25 +43,25 @@ const MenuItems = ({ category }) => {
                   <img
                     src={FRassets.add_icon_white}
                     onClick={() => addtoCart(items._id)}
-                    className="w-8 cursor-pointer"
+                    className="lg:w-11 w-8 cursor-pointer"
                   />
                 ) : (
-                  <div className="flex items-center gap-2 bg-white  relative px-2 py-1 rounded-full shadow">
+                  <div className="flex items-center gap-2 bg-white  relative px-1 py-1 rounded-full shadow">
 
                     <img
                       src={FRassets.add_icon_green}
                       onClick={() => addtoCart(items._id)}
-                      className="w-5 cursor-pointer"
+                      className="lg:w-8 w-5 cursor-pointer"
                     />
 
-                    <p className="text-sm font-semibold">
+                    <p className="lg:text-lg text-sm font-semibold">
                       {cartItem[items._id]}
                     </p>
 
                     <img
                       src={FRassets.remove_icon_red}
                       onClick={() => cartRemoveItem(items._id)}
-                      className="w-5 cursor-pointer"
+                      className="lg:w-8 w-5 cursor-pointer"
                     />
 
                   </div>
@@ -76,7 +76,7 @@ const MenuItems = ({ category }) => {
                 {items.name}
               </h2>
 
-              <Rating className={"lg:w-30 w-[14vw] lg:pl-auto lg:ml-38 ml-15 lg:bottom-21 bottom-3 absolute"} />
+              <Rating className={"lg:w-30 w-[14vw] lg:pl-auto lg:ml-33 ml-15 lg:bottom-3 bottom-3 absolute"} />
             </div>
 
             {/* Description */}

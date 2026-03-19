@@ -7,7 +7,7 @@ const MenuExplore = ({ category, setCategory }) => {
 
       {/* Heading */}
       <div className="px-4 mt-12 lg:px-24">
-        <h2 className="py-3 text-3xl  leading-tight lg:text-5xl  pt-20 font-medium text-shadow-lg text-shadow-zinc-400">
+        <h2 className="py-3 text-3xl  leading-tight lg:text-4xl  pt-20 font-medium text-shadow-lg text-shadow-zinc-400">
           Explore our menu
         </h2>
 

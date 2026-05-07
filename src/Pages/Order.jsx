@@ -12,7 +12,7 @@ const Order = () => {
 
   const fetchAllData = async () => {
 
-    const response = await axios.get("http://localhost:4000/api/food/userlist")
+    const response = await axios.get("https://food-delivery-backend-a6qk.onrender.com/api/food/userlist")
 
     if (response.data.success) {
       setOrder(response.data.data)
@@ -28,7 +28,7 @@ const Order = () => {
 
 
   const statushandler = async (e, orderId) => {
-    const response = await axios.post("http://localhost:4000/api/food/status", {
+    const response = await axios.post("https://food-delivery-backend-a6qk.onrender.com/api/food/status", {
       orderId,
       status: e.target.value
     })

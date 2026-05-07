@@ -9,7 +9,7 @@ const List = () => {
 
   const serverData = async () => {
 
-    const listData = await axios.get("https://food-delivery-l39b.onrender.com/api/food/List")
+    const listData = await axios.get("https://food-delivery-backend-a6qk.onrender.com/api/food/List")
     console.log(listData.data)
     if (listData.data.success) {
       setGetData(listData.data.data) //means we geeting only data array not whole json if we want whole json then (listData.data)

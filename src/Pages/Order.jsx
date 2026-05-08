@@ -4,6 +4,7 @@ import { assets } from '../assets/assets'
 import { useEffect } from 'react'
 import axios from "axios"
 import { toast } from 'react-toastify';
+import Skeleton from '../components/Skeleton'
 
 
 const Order = () => {
@@ -16,6 +17,7 @@ const Order = () => {
 
     if (response.data.success) {
       setOrder(response.data.data)
+      lo
     } else {
       toast.error("Error")
     }
@@ -34,7 +36,7 @@ const Order = () => {
     })
 
     if (response.data.success) {
-           await fetchAllData()
+      await fetchAllData()
     }
   }
 
@@ -48,7 +50,12 @@ const Order = () => {
         </h3>
 
         <div className="space-y-5">
-          {orders.map((order, index) => (
+          {orders.length === 0 ? <div >
+            <Skeleton/>
+            <Skeleton/>
+            <Skeleton/>
+          </div>
+            : orders.map((order, index) => (
             <div
               key={index}
               className="bg-white/80 backdrop-blur-md border border-gray-200 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 p-4 sm:p-5"
@@ -116,10 +123,10 @@ const Order = () => {
                   {/* STATUS BADGE */}
                   <span
                     className={`px-3 py-1 rounded-full text-xs font-medium ${order.status === "Delivered"
-                        ? "bg-green-100 text-green-600"
-                        : order.status === "Out for delivery"
-                          ? "bg-yellow-100 text-yellow-600"
-                          : "bg-gray-100 text-gray-600"
+                      ? "bg-green-100 text-green-600"
+                      : order.status === "Out for delivery"
+                        ? "bg-yellow-100 text-yellow-600"
+                        : "bg-gray-100 text-gray-600"
                       }`}
                   >
                     {order.status}

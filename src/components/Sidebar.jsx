@@ -18,7 +18,7 @@ const Sidebar = () => {
                 </NavLink>
 
 
-                <NavLink to={'/order'}className={({isActive})=>isActive ? 'flex p-1 items-center border-l border-t border-b border-orange-300 bg-orange-200   hover:bg-gray-100 hover:scale-98':"flex p-1 items-center border-l border-t border-b border-gray-400  hover:bg-gray-100 hover:scale-98"}>
+                <NavLink to={'/'}className={({isActive})=>isActive ? 'flex p-1 items-center border-l border-t border-b border-orange-300 bg-orange-200   hover:bg-gray-100 hover:scale-98':"flex p-1 items-center border-l border-t border-b border-gray-400  hover:bg-gray-100 hover:scale-98"}>
                     <img src={assets.order_icon} alt="" className='w-[4vh]' />
                     <p className='ml-1.5'>Orders</p>
                 </NavLink>

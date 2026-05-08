@@ -54,7 +54,7 @@ const List = () => {
       {getData.map((items) => (
         <div key={items._id} className="flex justify-between border-b-2 border-l-2  border-r-2  border-zinc-200 ml-10 w-[70vw] h-[10vh]">
           <div className="flex items-center w-[30vw]">
-            <img src={`http://localhost:4000/image/${items.image}`} alt={items.name} className="w-14 h-14 object-contain  ml-2" />
+            <img src={`https://food-delivery-backend-a6qk.onrender.com/image/${items.image}`} alt={items.name} className="w-14 h-14 object-contain  ml-2" />
             <p className='ml-18'>{items.name}</p>
           </div>
           <div className="flex  items-center w-[30.5vw] justify-between pr-15 text-left">
